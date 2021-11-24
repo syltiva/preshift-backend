@@ -8,14 +8,14 @@ require("dotenv").config();
 
 mongoose
   .connect(process.env.MONGODB_URL)
-  .then(() => console.log("Connected to DB...🎀"))
-  .catch(() => console.log("Couldn't connect to DB...🎃"));
+  .then(() => console.log("Connected to DB...📚"))
+  .catch(() => console.log("Couldn't connect to DB...❌"));
 
 // Middlewares
 app.use(cors());
 
 // route
-app.get("/duck", (req, res) => {
+app.get("/", (req, res) => {
   res.send("Works");
 });
 
