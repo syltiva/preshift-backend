@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
-
 const cors = require("cors");
+const { Router } = require('express')
 const app = express();
 
 require("dotenv").config();
@@ -13,11 +13,10 @@ mongoose
 
 // Middlewares
 app.use(cors());
+app.use(express.json());
 
 // route
-app.get("/", (req, res) => {
-  res.send("Works");
-});
+app.use("/api/v1/messages", require("./routes/message"))
 
 const port = process.env.PORT;
 app.listen(port, () => {
