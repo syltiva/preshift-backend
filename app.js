@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const { Router } = require('express')
 const app = express();
+const fileUpload = require('express-fileupload')
 
 require("dotenv").config();
 
@@ -14,6 +15,11 @@ mongoose
 // Middlewares
 app.use(cors());
 app.use(express.json());
+app.use(fileUpload({
+  useTempFiles: true,
+  tempFileDir: '/tmp/',
+  createParentPath:true
+}));
 
 // route
 app.use("/api/v1/messages", require("./routes/message"))
