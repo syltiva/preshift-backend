@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const Message = require("../models/MessageSchema");
 const cloudinary = require('cloudinary');
+
+const Message = require("../models/MessageSchema");
+
 
 // read all
 router.get("/", async (req, res) => {
@@ -65,6 +67,7 @@ router.delete("/message/:id", async (req, res) => {
 router.post("/message/imageUpload/:id", async (req, res) => {
   const { id } = req.params;
   const messageToUpdate = await Message.findById(id);
+  console.log("back/route: messageToUpdate", messageToUpdate)
 
   // checking for pre-existing image
   if (messageToUpdate.image) {
