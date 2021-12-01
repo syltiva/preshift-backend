@@ -1,11 +1,9 @@
-import "./ReservationsSchema";
-
 const { Schema, model } = require("mongoose");
 
 const UserSchema = new Schema({
   name: { type: String, required: true, trim: true },
   email: { type: String, required: true, trim: true },
-  password: { type: String, reuuired: true },
+  password: { type: String, required: true, trim: true },
   role: {
     type: String,
     required: true,

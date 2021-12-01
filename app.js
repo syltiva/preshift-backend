@@ -23,6 +23,7 @@ app.use(fileUpload({
 
 // route
 app.use("/api/v1/messages", require("./routes/message"))
+app.use("/api/v1/auth", require("./routes/auth"))
 
 const port = process.env.PORT;
 app.listen(port, () => {
