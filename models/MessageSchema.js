@@ -2,7 +2,7 @@ const { Schema, model } = require("mongoose");
 
 const MessageSchema = new Schema({
   image: { type: String },
-  date: { type: String, required: true },
+  date: { type: Date, required: true },
   covers: { type: Number, required: true },
   eightySix: {type: String},
   serviceNote: { type: Schema.Types.Mixed },
